@@ -216,14 +216,7 @@ def _read_output(filename: str, return_bytes: bool = False):
             return output_file.read()
         return output_file.read().decode(DEFAULT_ENCODING)
 
-def run_and_get_multiple_output(
-    image,
-    extensions: list[str],
-    # lang: str | None = None,
-    nice: int = 0,
-    timeout: int = 0,
-    return_bytes: bool = False,
-):
+
     config = ' '.join(
         EXTENTION_TO_CONFIG.get(extension, '') for extension in extensions
     ).strip()
