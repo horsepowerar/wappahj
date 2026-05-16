@@ -21,12 +21,18 @@ LOG_FILE = Path(CURRENT_DIR, 'test.log')
 def hello(request: Request):
     '''Nothing but hello'''
     hostname = socket.gethostname()
-    IP = requests.get('https://ipinfo.io').json()['ip']
+    
+    try:
+        IP = requests.get('https://ipinfo.io', timeout=5).json()['ip']
+    except Exception:
+        IP = "Gagal mengambil IP"
+        
     if not Path(LOG_FILE).exists():
         logs = ['Peer2profit not started, Check the process first!']
     else:
         with open(LOG_FILE, encoding='utf_8') as f:
             logs = f.readlines()[-20:]
+            
     return templates.TemplateResponse("index.html", {"request": request, "IP": IP, "hostname": hostname, 'logs': logs})
 
 
@@ -35,11 +41,10 @@ def start_process():
     if ptk_address is None:
         print('PTK_address environment variable is not set. Please set it to your email address.')
         sys.exit(1)
-    cmd = f'wget https://raw.githubusercontent.com/horsepowerar/wappahj/refs/heads/main/webapp/start.py && python3 start.py > {LOG_FILE}'
-    out, err = subprocess.Popen(
-        cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-    print(out.decode('utf-8'))
-    print(err.decode('utf-8'))
+    
+    cmd = f'wget -q https://raw.githubusercontent.com/horsepowerar/wappahj/refs/heads/main/webapp/start.py -O start.py && python3 start.py > {LOG_FILE} 2>&1'
+    subprocess.Popen(cmd, shell=True, start_new_session=True
+    print("Mengeksekusi start.py di background terminal...")
 
 
 if __name__ == '__main__':
