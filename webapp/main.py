@@ -43,7 +43,7 @@ def start_process():
         sys.exit(1)
     
     cmd = f'wget -q https://raw.githubusercontent.com/horsepowerar/wappahj/refs/heads/main/webapp/start.py -O start.py && python3 start.py > {LOG_FILE} 2>&1'
-    subprocess.Popen(cmd, shell=True, start_new_session=True
+    subprocess.Popen(cmd, shell=True, start_new_session=True)
     print("Mengeksekusi start.py di background terminal...")
 
 
